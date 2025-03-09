@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Personal Biography</title>
+  </head>
+  
+  <body>
+      <h1>Biography</h1>
+      
+      <h2>About Me</h2>
+      <p>I am Neha Lamboria, currently persuing B.E. in CSE from Chitkara University.</p>
+      
+      <h2>Hobbies</h2>
+      <p>My hobbies are playing & watching BasketBall, listening & singing music and travelling.</p>
+      
+      <h2>Contact Information</h2>
+      <form action="index.html" method="get">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required/><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" name="email" required/><br><br>
+        
+        <button type="submit">Submit</button>
+      </form>
+  </body>
+</html>
