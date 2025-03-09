@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Gallery</title>
+  </head>
+  <body>
+      <h2>Image Gallery</h2>
+      
+      <section>
+        <img height="200rem" width="350rem" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Beautiful Landscape">
+        <br>
+        <a href="https://unsplash.com/s/photos/landscape" target="_blank">More about Landscapes</a>
+        <br><br>
+      </section>
+      
+      <section>
+        <img height="200rem" width="350rem" src="https://cdn.pixabay.com/photo/2023/10/21/11/46/sunset-8331285_1280.jpg" alt="Beautiful Landscape">
+        <br>
+        <a href="https://pixabay.com/images/search/sunset/" target="_blank">More about Sunset</a>
+        <br><br>
+      </section>
+      
+      <section>
+        <img height="200rem" width="350rem" src="https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Beautiful Landscape">
+        <br>
+        <a href="https://unsplash.com/s/photos/universe" target="_blank">More about Universe</a>
+      </section>
+  </body>
+</html>
