@@ -1,0 +1,22 @@
+Brief Explanation of Fixes Applied:
+
+
+Fixed Overlapping Elements:
+The original .box elements had position: absolute and negative margins, causing overlap.
+Solution: Used display: flex; inside .container to align boxes properly and applied gap: 15px; to maintain spacing.
+
+Ensured Proper Box Sizing:
+The missing box-sizing: border-box; was causing inconsistent dimensions.
+Solution: Applied box-sizing: border-box; to ensure padding and borders don’t affect the element’s width and height.
+
+Corrected .text Positioning:
+The position: fixed; without centering logic made it off-balance.
+Solution: Used left: 50%; transform: translateX(-50%); to center it properly while keeping it fixed.
+
+Removed Negative Margins:
+The margin: -10px; in .box was unnecessary and caused layout distortion.
+Solution: Replaced it with gap: 15px; in .container.
+
+Made the Layout Responsive:
+On smaller screens, a flex-direction: row layout isn’t ideal.
+Solution: Used a media query (max-width: 600px) to change the layout to flex-direction: column;
