@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contact Form</title>
+  </head>
+  <body>
+      <form>
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="text" required=""/>
+        <br><br>
+        
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email" required=""/>
+        <br><br>
+        
+        <label for="gender">Gender: </label>
+        <select id="gender" name="gender" required>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        <br><br>
+        
+        <label for="message">Message: </label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        
+        <button type="submit">Submit</button>
+      </form>
+  </body>
+</html>
