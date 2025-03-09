@@ -1,0 +1,19 @@
+
+<form action="/submit" method="post">
+  <label for="username">Enter Username:</label>
+  <input type="text" id="username" name="username" required>
+
+  <label for="passcode">Password:</label>
+  <input type="password" id="passcode" name="password" required>
+
+  <button type="submit">Submit Form</button>
+</form>
+
+
+<!--Changed Name="username" to for="username" to correctly associate the label with the input.-->
+<!--Missing closing quote in input tag → name="username> to name="username".-->
+<!--Typo in input type="password" → typ="password" to type="password".-->
+<!--Changed <button Submit> to <button type="submit">.-->
+<!--Typo in </buttn> to </button>.-->
+<!--Added method="post" → Recommended for form submission to protect any sensitive data in the URL.-->
+<!--Added required attributes → Ensures both fields must be filled before submission.-->
