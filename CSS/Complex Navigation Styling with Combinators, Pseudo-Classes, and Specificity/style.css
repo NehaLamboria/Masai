@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    padding: 10px;
+    display: inline-block;
+    transition: 0.3s ease-in-out;
+}
+
+.section-1 a {
+    color: lightblue;
+}
+
+.section-2 a {
+    color: lightgreen;
+}
+
+.section-3 a {
+    color: lightcoral;
+}
+
+.nav-section > ul > li > a {
+    font-weight: bold;
+}
+
+.nav-section ul li ul li a {
+    font-style: italic;
+    font-size: 14px;
+}
+
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+.navbar a:active {
+    color: yellow;
+    background-color: black;
+}
+
+a[href^="https"] {
+    color: orange !important;
+    font-weight: bold;
+    text-decoration: underline;
+}
