@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Webpage</title>
+    
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      #main-title{
+        font-size: 32px;
+        color: darkblue;
+        text-align: center;
+      }
+      #subtitle{
+        font-size: 24px;
+        color: darkgreen;
+      }
+      p{
+        padding: 10px;
+        border: 2px solid rgba(0,0,0,0.1);
+      }
+    </style>
+  </head>
+  
+  <body>
+    <h1 id="main-title">Heading One</h1>
+    <h2 id="subtitle">Heading Two</h2>
+    
+    <p>This is a sample paragraph for this document.</p>
+    <p>This is a sample paragraph for this document.</p>
+    <p>This is a sample paragraph for this document.</p>
+    <p>This is a sample paragraph for this document.</p>
+    <p>This is a sample paragraph for this document.</p>
+  </body>
+</html>
