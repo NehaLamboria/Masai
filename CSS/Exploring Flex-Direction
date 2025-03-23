@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox - Flex Direction</title>
+    <style>
+        /* Container with Flexbox */
+        .container {
+            display: flex;
+            flex-direction: row; /* Items are arranged in a row by default */
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            height: 100vh; /* Full screen height */
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        /* Flex items */
+        .item {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Responsive Design: Change to column on smaller screens */
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column; /* Now items are stacked vertically */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+    </div>
+
+</body>
+</html>
