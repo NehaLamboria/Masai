@@ -1,0 +1,18 @@
+/* Mobile-first approach */
+body {
+    font-size: 14px;
+    line-height: 1.5;
+    width: 100%;
+}
+
+/* Ensure proper scaling */
+meta[name="viewport"] {
+    content: "width=device-width, initial-scale=1.0";
+}
+
+/* Adjust text size for larger screens */
+@media (min-width: 600px) {
+    body {
+        font-size: 16px;
+    }
+}
