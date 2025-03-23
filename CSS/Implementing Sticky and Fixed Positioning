@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Header & Fixed Footer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            position: sticky;
+            top: 0;
+            background: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Sticky Header</div>
+    <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>Suspendisse potenti. Integer non turpis vel arcu gravida fermentum.</p>
+        <p>Aliquam erat volutpat. Proin ut tellus in purus vehicula elementum.</p>
+        <p>Curabitur consectetur, nunc sed cursus malesuada, risus velit facilisis augue.</p>
+        <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+        <p>Fusce nec odio vitae dolor fermentum tristique eget nec elit.</p>
+        <p>Praesent feugiat velit nec odio molestie, at egestas nunc congue.</p>
+        <p>Duis accumsan arcu ac ligula fermentum, a pulvinar eros tincidunt.</p>
+        <p>Morbi id dui sed erat vestibulum imperdiet ac sit amet felis.</p>
+        <p>Integer dapibus, nunc eu tempus cursus, ligula orci sodales dolor.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>Suspendisse potenti. Integer non turpis vel arcu gravida fermentum.</p>
+        <p>Aliquam erat volutpat. Proin ut tellus in purus vehicula elementum.</p>
+        <p>Curabitur consectetur, nunc sed cursus malesuada, risus velit facilisis augue.</p>
+        <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+        <p>Fusce nec odio vitae dolor fermentum tristique eget nec elit.</p>
+        <p>Praesent feugiat velit nec odio molestie, at egestas nunc congue.</p>
+        <p>Duis accumsan arcu ac ligula fermentum, a pulvinar eros tincidunt.</p>
+        <p>Morbi id dui sed erat vestibulum imperdiet ac sit amet felis.</p>
+        <p>Integer dapibus, nunc eu tempus cursus, ligula orci sodales dolor.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>Suspendisse potenti. Integer non turpis vel arcu gravida fermentum.</p>
+        <p>Aliquam erat volutpat. Proin ut tellus in purus vehicula elementum.</p>
+        <p>Curabitur consectetur, nunc sed cursus malesuada, risus velit facilisis augue.</p>
+        <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+        <p>Fusce nec odio vitae dolor fermentum tristique eget nec elit.</p>
+        <p>Praesent feugiat velit nec odio molestie, at egestas nunc congue.</p>
+        <p>Duis accumsan arcu ac ligula fermentum, a pulvinar eros tincidunt.</p>
+        <p>Morbi id dui sed erat vestibulum imperdiet ac sit amet felis.</p>
+        <p>Integer dapibus, nunc eu tempus cursus, ligula orci sodales dolor.</p>
+    </div>
+    <div class="footer">Fixed Footer</div>
+</body>
+</html>
