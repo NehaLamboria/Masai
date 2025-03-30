@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Propagation Demo</title>
+    <style>
+        .box {
+            padding: 20px;
+            margin: 10px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer" class="box" style="background-color: lightcoral;">
+        Outer Div
+        <button id="outer-btn">Outer Button</button>
+        <div id="middle" class="box" style="background-color: lightblue;">
+            Middle Div
+            <button id="middle-btn">Middle Button</button>
+            <div id="inner" class="box" style="background-color: lightgreen;">
+                Inner Div
+                <button id="inner-btn">Inner Button</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showAlert(event) {
+            alert(`${event.currentTarget.id} clicked`);
+        }
+
+        function stopPropagation(event) {
+            alert("Inner Button clicked - Stopping propagation");
+            event.stopPropagation();
+        }
+
+        document.getElementById("outer").addEventListener("click", showAlert, true); 
+        document.getElementById("middle").addEventListener("click", showAlert, true);
+        document.getElementById("inner").addEventListener("click", showAlert, true);
+
+        document.getElementById("outer-btn").addEventListener("click", showAlert);
+        document.getElementById("middle-btn").addEventListener("click", showAlert);
+        document.getElementById("inner-btn").addEventListener("click", stopPropagation); 
+    </script>
+</body>
+</html>
