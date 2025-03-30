@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Preferences</title>
+    <style>
+        body.light { background-color: white; color: black; }
+        body.dark { background-color: black; color: white; }
+    </style>
+</head>
+<body>
+
+    <form id="preferencesForm">
+        <label for="theme">Theme:</label>
+        <select id="theme">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+        </select>
+
+        <label for="language">Language:</label>
+        <select id="language">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+        </select>
+
+        <label for="notifications">Notifications:</label>
+        <input type="checkbox" id="notifications">
+
+        <button type="submit">Save Preferences</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('preferencesForm');
+        const themeSelect = document.getElementById('theme');
+        const languageSelect = document.getElementById('language');
+        const notificationsCheckbox = document.getElementById('notifications');
+
+        // Function to apply the theme
+        function applyTheme(theme) {
+            document.body.className = theme;
+        }
+
+        // Load and apply saved preferences on page load
+        window.onload = () => {
+            const storedPreferences = localStorage.getItem('preferences');
+
+            if (storedPreferences) {
+                const parsedPreferences = JSON.parse(storedPreferences);
+
+                themeSelect.value = parsedPreferences.theme;
+                languageSelect.value = parsedPreferences.language;
+                notificationsCheckbox.checked = parsedPreferences.notifications;
+
+                applyTheme(parsedPreferences.theme);
+            }
+        };
+
+        // Apply theme instantly when selection changes
+        themeSelect.addEventListener('change', () => {
+            applyTheme(themeSelect.value);
+        });
+
+        // Save preferences on form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const preferences = {
+                theme: themeSelect.value,
+                language: languageSelect.value,
+                notifications: notificationsCheckbox.checked
+            };
+
+            localStorage.setItem('preferences', JSON.stringify(preferences));
+            alert('Preferences Saved!');
+        });
+
+    </script>
+
+</body>
+</html>
