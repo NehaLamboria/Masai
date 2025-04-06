@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Library Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .form-group, .filter-group {
+      margin-bottom: 15px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    .pagination {
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Library Management System</h1>
+
+  <div class="form-group">
+    <h3>Add Book</h3>
+    <input id="title" placeholder="Title" />
+    <input id="author" placeholder="Author" />
+    <input id="genre" placeholder="Genre" />
+    <input id="year" type="number" placeholder="Published Year" />
+    <label><input type="checkbox" id="available" /> Available</label>
+    <button onclick="addBook()">Add</button>
+  </div>
+
+  <div class="filter-group">
+    <h3>Filters</h3>
+    <select id="genreFilter" onchange="applyFilters()">
+      <option value="">All Genres</option>
+      <option value="Science Fiction">Science Fiction</option>
+      <option value="Dystopian">Dystopian</option>
+    </select>
+
+    <select id="sortBy" onchange="applyFilters()">
+      <option value="">Sort By</option>
+      <option value="title">Title</option>
+      <option value="author">Author</option>
+      <option value="publishedYear">Published Year</option>
+    </select>
+
+    <label>Items per page:
+      <select id="limit" onchange="applyFilters()">
+        <option value="5">5</option>
+        <option value="10">10</option>
+      </select>
+    </label>
+  </div>
+
+  <div id="bookList"></div>
+  <div class="pagination">
+    <button onclick="prevPage()">Prev</button>
+    <span id="pageNumber">1</span>
+    <button onclick="nextPage()">Next</button>
+  </div>
+
+  <script>
+    const DB_URL = "https://your-project-id.firebaseio.com/books.json"; // Replace with your Firebase URL
+    let currentPage = +localStorage.getItem("page") || 1;
+    let filter = localStorage.getItem("genre") || "";
+    let sort = localStorage.getItem("sort") || "";
+    let limit = +localStorage.getItem("limit") || 5;
+
+    document.getElementById("genreFilter").value = filter;
+    document.getElementById("sortBy").value = sort;
+    document.getElementById("limit").value = limit;
+
+    async function fetchBooks() {
+      try {
+        const res = await fetch(DB_URL);
+        const data = await res.json();
+        let books = Object.entries(data || {}).map(([id, value]) => ({ id, ...value }));
+
+        // Filter
+        if (filter) books = books.filter(b => b.genre === filter);
+
+        // Sort
+        if (sort) books.sort((a, b) => (a[sort] > b[sort] ? 1 : -1));
+
+        // Pagination
+        const start = (currentPage - 1) * limit;
+        const paginated = books.slice(start, start + limit);
+        renderBooks(paginated);
+        document.getElementById("pageNumber").innerText = currentPage;
+
+      } catch (err) {
+        document.getElementById("bookList").innerText = "Error fetching data.";
+      }
+    }
+
+    function renderBooks(books) {
+      const html = `<table><tr><th>Title</th><th>Author</th><th>Genre</th><th>Year</th><th>Available</th></tr>
+        ${books.map(book => `<tr><td>${book.title}</td><td>${book.author}</td><td>${book.genre}</td><td>${book.publishedYear}</td><td>${book.available}</td></tr>`).join("")}
+        </table>`;
+      document.getElementById("bookList").innerHTML = html;
+    }
+
+    async function addBook() {
+      const title = document.getElementById("title").value;
+      const author = document.getElementById("author").value;
+      const genre = document.getElementById("genre").value;
+      const publishedYear = +document.getElementById("year").value;
+      const available = document.getElementById("available").checked;
+
+      const newBook = { title, author, genre, publishedYear, available };
+      await fetch(DB_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newBook),
+      });
+      fetchBooks();
+    }
+
+    function applyFilters() {
+      filter = document.getElementById("genreFilter").value;
+      sort = document.getElementById("sortBy").value;
+      limit = +document.getElementById("limit").value;
+      currentPage = 1;
+      localStorage.setItem("genre", filter);
+      localStorage.setItem("sort", sort);
+      localStorage.setItem("limit", limit);
+      localStorage.setItem("page", currentPage);
+      fetchBooks();
+    }
+
+    function nextPage() {
+      currentPage++;
+      localStorage.setItem("page", currentPage);
+      fetchBooks();
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        localStorage.setItem("page", currentPage);
+        fetchBooks();
+      }
+    }
+
+    fetchBooks();
+  </script>
+</body>
+</html>
