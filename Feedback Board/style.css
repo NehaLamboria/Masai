@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    transition: all 0.3s ease;
+  }
+  body.light {
+    background: #f4f4f4;
+    color: #333;
+  }
+  body.dark {
+    background: #121212;
+    color: #fff;
+  }
+  .container {
+    display: grid;
+    grid-template-areas:
+      "header"
+      "form"
+      "list";
+    gap: 1rem;
+    padding: 1rem;
+  }
+  header {
+    grid-area: header;
+    text-align: center;
+  }
+  form#feedback-form {
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+  }
+  form input, form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  form button {
+    padding: 10px;
+    background: linear-gradient(to right, #4caf50, #45a049);
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  form button:hover {
+    background: linear-gradient(to right, #45a049, #4caf50);
+  }
+  .confirmation {
+    color: green;
+  }
+  .feedback-list {
+    grid-area: list;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .feedback-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 250px;
+    position: relative;
+    border: 1px solid #ccc;
+  }
+  .feedback-card button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: crimson;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+  }
+  .feedback-card button:hover {
+    background: darkred;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .container {
+      grid-template-areas:
+        "header"
+        "form"
+        "list";
+      grid-template-columns: 1fr;
+    }
+    .feedback-card {
+      width: 100%;
+    }
+  }
