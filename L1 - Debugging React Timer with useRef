@@ -1,0 +1,47 @@
+import React, { useState, useRef } from "react";
+
+function Timer() {
+  const [time, setTime] = useState(10);
+  const intervalId = useRef(null); // UseRef for storing the interval ID
+  const isRunning = useRef(false); // Track whether the timer is running
+
+  const startTimer = () => {
+    if (isRunning.current) return; // If the timer is already running, don't start it again
+
+    isRunning.current = true; // Mark the timer as running
+    intervalId.current = setInterval(() => {
+      setTime((prevTime) => {
+        if (prevTime <= 1) {
+          clearInterval(intervalId.current); // Stop timer when time reaches 0
+          isRunning.current = false; // Mark the timer as stopped
+          return 0;
+        }
+        return prevTime - 1;
+      });
+    }, 1000);
+  };
+
+  const stopTimer = () => {
+    if (intervalId.current) {
+      clearInterval(intervalId.current); // Clear the interval to stop the timer
+      isRunning.current = false; // Mark the timer as stopped
+    }
+  };
+
+  const resetTimer = () => {
+    clearInterval(intervalId.current); // Clear the interval
+    setTime(10); // Reset the time
+    isRunning.current = false; // Reset the timer status to stopped
+  };
+
+  return (
+    <div>
+      <h1>Time Left: {time}</h1>
+      <button onClick={startTimer}>Start</button>
+      <button onClick={stopTimer}>Stop</button>
+      <button onClick={resetTimer}>Reset</button>
+    </div>
+  );
+}
+
+export default Timer;
