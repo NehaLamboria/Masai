@@ -1,0 +1,39 @@
+import React, { useRef } from 'react';
+
+function OTPInput() {
+  const inputRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
+
+  const handleChange = (event, index) => {
+    const nextInput = inputRefs[index + 1];
+    const prevInput = inputRefs[index - 1];
+
+    if (event.target.value.length === 1 && nextInput) {
+      nextInput.current.focus();
+    }
+
+    if (event.target.value.length === 0 && prevInput) {
+      prevInput.current.focus();
+    }
+  };
+
+  return (
+    <div>
+      <h3>Enter OTP</h3>
+      <div style={{ display: 'flex', gap: '10px' }}>
+        {inputRefs.map((ref, index) => (
+          <input
+            key={index}
+            ref={ref}
+            type="text"
+            maxLength="1"
+            style={{ width: '40px', textAlign: 'center' }}
+            onChange={(event) => handleChange(event, index)}
+            onFocus={(e) => e.target.select()} 
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default OTPInput;
