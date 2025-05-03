@@ -1,0 +1,23 @@
+import React, { useState, useEffect } from "react";
+
+function RandomNumberLogger() {
+  const [number, setNumber] = useState(0);
+
+  useEffect(() => {
+    console.log(`State updated: ${number}`);
+  }, [number]);
+
+  const generateRandomNumber = () => {
+    const random = Math.floor(Math.random() * 100);
+    setNumber(random);
+  };
+
+  return (
+    <div>
+      <h2>Current Number: {number}</h2>
+      <button onClick={generateRandomNumber}>Generate Random Number</button>
+    </div>
+  );
+}
+
+export default RandomNumberLogger;
