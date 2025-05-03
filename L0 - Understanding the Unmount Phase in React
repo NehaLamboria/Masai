@@ -1,0 +1,33 @@
+import React, { useState, useEffect } from 'react';
+
+function ToggleComponent() {
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    console.log("Component Mounted");
+
+    return () => {
+      console.log("Component Unmounted");
+    };
+  }, []); 
+
+  const toggleVisibility = () => {
+    setIsVisible(prevState => !prevState);
+  };
+
+  return (
+    <div>
+      <button onClick={toggleVisibility}>
+        Toggle Component Visibility
+      </button>
+      
+      {isVisible && (
+        <div>
+          <h2>This is the component!</h2>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default ToggleComponent;
