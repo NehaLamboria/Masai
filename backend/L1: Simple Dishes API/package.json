@@ -1,0 +1,17 @@
+{
+  "name": "dish-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",  
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0",
+    "lowdb": "^3.0.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
